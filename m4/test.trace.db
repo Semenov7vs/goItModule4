@@ -1,0 +1,402 @@
+2023-05-15 13:35:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 13:41:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 13:44:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 16:17:09 database: wrong user or password; user: ""
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at org.example.Database.<init>(Database.java:14)
+	at org.example.Database.<clinit>(Database.java:8)
+	at org.example.Main.main(Main.java:8)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 17 more
+2023-05-15 16:18:18 database: wrong user or password; user: ""
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at org.example.Database.<init>(Database.java:14)
+	at org.example.Database.<clinit>(Database.java:8)
+	at org.example.DatabaseInitService.main(DatabaseInitService.java:24)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 17 more
+2023-05-15 17:08:34 database: wrong user or password; user: ""
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at org.example.Database.<init>(Database.java:16)
+	at org.example.Database.<clinit>(Database.java:8)
+	at org.example.DatabaseInitService.main(DatabaseInitService.java:38)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 17 more
+2023-05-15 17:14:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT NOT NULL CHECK (SALARY >= 100 AND SALARY <= 100000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 17:22:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT[*] NULL,                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 17:35:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 17:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 17:36:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));CREATE TABLE CLIENT (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE PROJECT (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID));CREATE TABLE PROJECT_WORKER (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID));"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,                        PRIMARY KEY (ID));CREATE TABLE client (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        PRIMARY KEY (ID));CREATE TABLE project (                         ID INT NOT NULL AUTO_INCREMENT,                         CLIENT_ID INT NOT NULL,                         START_DATE DATE NOT NULL,                         FINISH_DATE DATE NOT NULL,                         PRIMARY KEY (ID),                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID));CREATE TABLE project_worker (                                PROJECT_ID INT NOT NULL,                                WORKER_ID INT NOT NULL,                                PRIMARY KEY (PROJECT_ID, WORKER_ID),                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)); [42001-200]
+2023-05-15 18:30:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE client (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE project (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID)
+);
+
+CREATE TABLE project_worker (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)
+);
+ [42001-200]
+2023-05-15 18:30:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE client (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE project (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID)
+);
+
+CREATE TABLE project_worker (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)
+);
+ [42001-200]
+2023-05-16 13:30:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE CLIENT (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE PROJECT (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES CLIENT(ID)
+);
+
+CREATE TABLE PROJECT_WORKER (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES WORKER(ID)
+);
+"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,
+                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE client (
+                        ID INT NOT NULL AUTO_INCREMENT,
+                        NAME VARCHAR(1000) NOT NULL,
+                        PRIMARY KEY (ID)
+);
+
+CREATE TABLE project (
+                         ID INT NOT NULL AUTO_INCREMENT,
+                         CLIENT_ID INT NOT NULL,
+                         START_DATE DATE NOT NULL,
+                         FINISH_DATE DATE NOT NULL,
+                         PRIMARY KEY (ID),
+                         FOREIGN KEY (CLIENT_ID) REFERENCES client(ID)
+);
+
+CREATE TABLE project_worker (
+                                PROJECT_ID INT NOT NULL,
+                                WORKER_ID INT NOT NULL,
+                                PRIMARY KEY (PROJECT_ID, WORKER_ID),
+                                FOREIGN KEY (PROJECT_ID) REFERENCES project(ID),
+                                FOREIGN KEY (WORKER_ID) REFERENCES worker(ID)
+);
+ [42001-200]
+2023-05-16 14:20:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));"; ожидалось "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE WORKER (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL[*],                        PRIMARY KEY (ID));"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE worker (                        ID INT NOT NULL AUTO_INCREMENT,                        NAME VARCHAR(1000) NOT NULL,                        BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),                        LEVEL ENUM('Trainee', 'Junior', 'Middle', 'Senior') NOT NULL,                        SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000) NULL,                        PRIMARY KEY (ID)); [42001-200]
